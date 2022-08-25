@@ -1,5 +1,4 @@
-# DATA 180: Introduction to Data Science (Fall 2022) #
-## Section 2
+# DATA 180: Introduction to Data Science, 02 (Fall 2022) #
 
 |  | [Eren Bilen](http://ernbilen.github.io) |
 |--------------|--------------------------------------------------------------|
