@@ -1,5 +1,5 @@
 ---
-title: "HW 0, Due Sep 8 beginning of class"
+title: "HW 0, Due Sep 1 beginning of class"
 subtitle: "Data 180, Professor Bilen"
 author: 
   name: "Your Name"
