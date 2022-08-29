@@ -40,3 +40,4 @@ Homework           |   40   |    40.0%   |
 * [Notes on Machine Learning & Artificial Intelligence](https://chrisalbon.com) by Chris Albon
 * [The Effect ](https://theeffectbook.net) by Nick Huntington-Klein
 * [QuantEcon](https://quantecon.org)
+* [Live question link](https://itempool.com/ernbilen/live)
