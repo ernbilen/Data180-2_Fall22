@@ -9,6 +9,8 @@
 
 * **Meeting day/time**: T-Th 10:30-11:45am, Tome 120
 * Office hours also available by appointment.
+* **QRA:** Chloe Ho [hochl@dickinson.edu](mailto:hochl@dickinson.edu)
+* **QRA Office Hours:** T-F 1:30-2:30pm @Rector North 1311
 
 ## Course description ##
 
