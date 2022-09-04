@@ -39,5 +39,6 @@ Homework           |   40   |    40.0%   |
 * [Introduction to Statistical Learning](https://hastie.su.domains/ISLR2/ISLRv2_website.pdf) by Gareth James,Daniela Witten,Trevor Hastie, Robert Tibshirani
 * [Notes on Machine Learning & Artificial Intelligence](https://chrisalbon.com) by Chris Albon
 * [The Effect ](https://theeffectbook.net) by Nick Huntington-Klein
+* [LaTeX Cheat Sheet](https://chrisalbon.com) and [an excellent tutorial](https://www.youtube.com/watch?v=NXW4cbHBthY) by Dave Richeson
 * [QuantEcon](https://quantecon.org)
 * [Live question link](https://itempool.com/ernbilen/live)
