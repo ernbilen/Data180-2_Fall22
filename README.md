@@ -36,6 +36,15 @@ Take-home Final	   |   20   |	   20.0%   |
 Homework           |   40   |    40.0%   |
 **Total points**   | **100** | **100.0%** |
 
+## Steps to submit your assignment on Github
+- Accept my hw invitation link (this automatically creates a clone repo just for you)
+- On this repo, hit Code -> Open with Github Desktop
+- In Github Desktop -> hit Show in Finder (or explorer if you are on Windows)
+- In your local Finder window, you will see the hw0 folder, go inside, work on the assignment.
+- Once you are finished, save your changes in RStudio.
+- Go back to Github Desktop, you will see that it recognized your changes in your local file, and it’s waiting for you to commit. Go ahead and commit (you must add a short comment at this stage about what changes you have made.)
+- Push your changes by clicking on “Push origin” (blue button in the middle of Github Desktop window). You are done!
+
 ## Helpful Links ##
 
 * [Introduction to Statistical Learning](https://hastie.su.domains/ISLR2/ISLRv2_website.pdf) by Gareth James,Daniela Witten,Trevor Hastie, Robert Tibshirani
