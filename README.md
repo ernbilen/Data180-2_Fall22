@@ -1,5 +1,7 @@
 # DATA 180: Introduction to Data Science, 02 (Fall 2022) #
 
+[link](https://classroom.github.com/a/p8YG_MIf)
+
 |  | [Eren Bilen](http://ernbilen.github.io) |
 |--------------|--------------------------------------------------------------|
 | Email | [bilene@dickinson.edu](mailto:bilene@dickinson.edu) |
