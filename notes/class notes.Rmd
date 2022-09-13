@@ -1,0 +1,84 @@
+---
+title: "Class notes"
+output: html_document
+date: "2022-09-13"
+---
+
+```{r}
+Y <- 3.6
+Z <- "myvariable"
+#H <- myvariable # don't forget to use quotes when you work with string variables
+typeof(Y)
+typeof(Z)
+```
+
+```{r}
+X <- c(1,2,3,4)
+X
+seq(1,4,1) # start, end, increments
+1:4 # whole numbers from 1 through 4, (4 included)
+length(X)
+
+seq(1,10,length.out=10)
+
+rep(3,5)
+rep("mytext",5)
+rep(1:3,5)
+rep(c(1,2,3),5)
+```
+
+```{r}
+names(X) <- c("firstelement","secondelement","thirdelement","fourthelement")
+X
+```
+
+
+```{r}
+names(X)[3] <- "THIRDELEMENT"
+X
+```
+
+
+```{r}
+X <- matrix(1:10,nrow=2,byrow = T)
+X
+length(X) # returns the length of matrix (treating X as a one dimensional vector)
+dim(X) # returns the dimensions of the matrix
+
+X[2,2]
+X[2,5]
+X[1,3]
+X[2,] # returns the second row
+X[,5] # returns the fifth column
+X
+X[, c(2,4)]
+X
+X[, -c(2,4)]
+```
+
+```{r}
+rownames(X) <- c("firstrow","secondrow")
+colnames(X) <- c("col1","col2","col3","col4","col5")
+X
+dimnames(X) # returns a list with two elements, rownames and colnames
+```
+
+```{r}
+mylist <- list(rep(2,3), matrix(1:4,nrow=2,byrow=T),c("hello","bye"))
+names(mylist) <- c("firstlement","secondelement","thirdelement")
+mylist$firstlement
+mylist
+```
+```{r}
+# Categorical data, aka Factor variables
+Treatment <- c("Drug","Drug","Drug","Placebo","Placebo","Placebo")
+Treatment <- factor(Treatment) # declares that vector Treatment is categorical data
+Treatment
+print.default(Treatment)
+```
+
+```{r}
+myclass <- c("Upper","Upper","Lower","Middle","Middle")
+ordered(myclass,levels=c("Upper","Middle","Lower")) # to change the order (1st<2nd<3rd)
+```
+
