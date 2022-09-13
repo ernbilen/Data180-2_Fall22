@@ -6,6 +6,7 @@
 | Office | Rector North 1309 |
 | Office Hours | M 4:30-5:30pm, T 3-4pm, <br> W 9-10am|
 | GitHub | [ernbilen](https://github.com/ernbilen) |
+| Zoom Link | [Click here](https://dickinson.zoom.us/j/3221259963) |
 
 * **Meeting day/time**: T-Th 10:30-11:45am, Tome 120
 * Office hours also available by appointment.
