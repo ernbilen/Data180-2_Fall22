@@ -1,0 +1,35 @@
+---
+title: "viz lecture"
+output: html_document
+date: "2022-09-20"
+---
+
+```{r}
+library(MASS)
+data("Cars93") # loading in the Cars93 dataframe
+
+table(Cars93$AirBags) # frequency distribution
+
+barplot(table(Cars93$AirBags),ylab="Freq.",col = c("red","green","blue"),cex.lab=1.3, cex.axis = 1.3)
+
+barplot(round(table(Cars93$AirBags)/nrow(Cars93),3),ylab="Percentages",col = c("red","green","blue"),cex.lab=1.3, cex.axis = 1.3)
+```
+```{r}
+table(Cars93$AirBags, Cars93$Origin)
+#barplot(table(Cars93$AirBags, Cars93$Origin), beside=T, col = c(2,3,4), ylim=c(0,40),xlim=c(1,9))
+barplot(table(Cars93$AirBags, Cars93$Origin), beside=T, col = c(2,3,4), ylim=c(0,40))
+legend(x=5.5,y=38,title='Airbag categories', legend=c('Driver & Passenger','Driver Only','None'),fill = c(2,3,4))
+```
+
+
+```{r}
+pie(table(Cars93$AirBags),main="Air Bags Pie Chart",col=c(2,3,4),cex=1.3)
+```
+
+
+```{r}
+#stem(Cars93$MPG.city)
+stripchart(Cars93$MPG.city,method="stack",pch=16,cex.axis=1.2,cex.lab=1.2,xlab="Miles per Gallon")
+```
+
+
