@@ -82,3 +82,105 @@ myclass <- c("Upper","Upper","Lower","Middle","Middle")
 ordered(myclass,levels=c("Upper","Middle","Lower")) # to change the order (1st<2nd<3rd)
 ```
 
+```{r}
+#### 9/15/2022
+df <- data.frame(Number = c(1,4,2,5), Letter=c("a","r","g","f"), Truth = c(T,F,F,T))
+df
+```
+```{r}
+df[,-c(1,3)]
+df[, 2]
+df[,"Letter"]
+df$Letter
+##################
+df[2,3] # returns row 2, col 3
+df[1,2] # returns row 1, col 2
+ncol(df)
+nrow(df)
+```
+```{r}
+mydf <- data.frame(var1 = 1:1000)
+#print(mydf)
+
+mymatrix <- matrix(1:10000,nrow=1000,byrow=T)
+head(mymatrix) # displays first 6 rows by default
+```
+
+
+```{r}
+# write a function that print "Hello World!" when it's called
+# define a function called say_hi
+say_hi = function(){
+  print("Hello World!")
+}
+
+# call the function
+say_hi()
+
+```
+
+
+```{r}
+# declare a function that takes an input number, multiplies it by 2
+myfunc = function(num){
+  
+  return(num*2)
+  
+}
+
+myfunc(100)
+```
+
+```{r}
+x <- 0.1
+
+# print "This number is negative" if x<0, otherwise prints "nonnegative!"
+
+if(x<0){
+  print("This number is negative!")
+} else{
+  print("This number is non-negative!")
+}
+```
+
+```{r}
+x <- -5
+
+# print "This number is negative" if x<0, "This number is positive if x>0, This number is zero if x=0)
+
+if(x<0){
+  print("This number is negative!")
+} else if(x==0){
+  print("This number is zero!")
+} else{
+  print("This number is positive!")
+}
+```
+
+
+```{r}
+# custom function that returns "This number is an even number!" if the number is even, otherwise "This number is an odd number!"
+
+evenorodd = function(mynum){
+  if(mynum %% 2 == 0){
+    return("This number is an even number!")
+  }
+  return("This number is an odd number!")
+}
+evenorodd(6)
+```
+
+```{r}
+for(i in 1:3){
+  print(i)
+}
+```
+
+```{r}
+myvector <- c('a', 'vector','of','character','values','works','too!')
+for(i in myvector){
+  print(i)
+  # browser() in case you want to stop at an iteration for debugging, 'n': next line; 'c' continue; 'Q' quit debugging.
+}
+```
+
