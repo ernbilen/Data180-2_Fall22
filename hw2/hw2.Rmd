@@ -58,7 +58,7 @@ c) Create a pie chart of the variable `Type`.
 *	The names, labels, and axes sizes (cex parameter) should be set to 1.2
 
 d) What is the mode of the variable `Type`? Comment.
-It is Midsize, closely followed by Small.
+
 
 ## Task 2 
 a) Create a histogram of the variable `Horsepower`.
@@ -83,7 +83,7 @@ c) Which histogram more closely follows or rule of thumb for the suggested numbe
 ```{r}
 
 ```
-The first histogram.
+
 
 ## Task 3 
 a) What is the type of variable `Passengers`? (Categorical nominal/ordinal or Numerical discrete/continuous?) What happens if we were to make a histogram for `Passengers`? What is the problem with this graph?
