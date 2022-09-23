@@ -1,5 +1,5 @@
 ---
-title: "Lecture 4 cont: ggplot"
+title: "Lecture 4 cont: ggplot2"
 output: 
   html_document
 ---
@@ -20,9 +20,8 @@ knitr::opts_chunk$set(
 ) 
 ```
 
-# ggplot2 R package  for Data Visualization  
+# ggplot2 R package for Data Visualization  
 
-## ggplot2 R package
 
 * ggplot is a function in the [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html) package and is based on **The Grammar of Graphics** by Leland Wilkinson, and the [lattice](https://cran.r-project.org/web/packages/lattice/index.html) package
 * ggplot is designed to work in a  *layered fashion*, starting with a layer showing the raw data then adding layers of annotation and statistical summaries 
@@ -32,7 +31,7 @@ Let's look at an example **diamonds** data that comes with the [ggplot2](https:/
 
 
 ```{r echo=FALSE, warnings=FALSE}
-#install.packages("ggplot2")
+#install.packages("ggplot2") # only need to install once
 library(ggplot2)
 ```
 
@@ -208,15 +207,8 @@ ggplot(diamonds) + geom_point(aes(price, carat))
 ```
 
 
-
-## Cheat sheet
-We are covering only a few of the many plot types that can be greated with the **ggplot2** package
-
-For a more comprehensive view of ggplot2, take a look at the ggplot2 [Cheat sheet](https://www.rstudio.com/resources/cheatsheets)
-
-
 ## Histograms
-However, a *histogram* would be a better choice here
+Let's make a histogram.
 ```{r}
 ggplot(diamonds, aes(depth)) + geom_histogram()
 ```
@@ -250,8 +242,13 @@ ggplot(diamonds, aes(depth)) + geom_histogram(binwidth = 0.2) +
 Or, you can overlay the historgrams 
 ```{r}
 ggplot(diamonds, aes(depth, fill=cut)) + 
-    geom_histogram(binwidth=0.2) + xlim(56,67)
+    geom_histogram(binwidth=0.2,colour="grey50",alpha=.4,position="identity") + xlim(56,67)
 ```
+
+## Cheat sheet
+We are covering only a few of the many plot types that can be greated with the **ggplot2** package.
+
+For a more comprehensive view of ggplot2, take a look at the ggplot2 [Cheat sheet](https://r4ds.had.co.nz/data-visualisation.html)
 
 
 ## Maps
