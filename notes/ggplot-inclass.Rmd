@@ -1,0 +1,207 @@
+---
+title: "ggplot-inclass"
+output: html_document
+date: "2022-09-29"
+---
+
+```{r echo=FALSE}
+# Custom options for knitting
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  error = FALSE, 
+  collapse = TRUE,
+  comment = "#",
+  fig.height = 5,
+  fig.width = 5,
+  fig.align = "center",
+  cache = FALSE
+) 
+```
+
+```{r}
+library(ggplot2)
+data(diamonds)
+head(diamonds)
+```
+
+```{r}
+# create a scatterplot
+ggplot(diamonds, aes(x=carat,y=price))   + 
+                            geom_point(col='blue',alpha=.1,size=2,shape=7) + 
+                            labs(y='price in $',x='carat value')
+```
+
+
+```{r}
+#ggplot(diamonds,aes(y=price)) + geom_boxplot()
+ggplot(diamonds,aes(x=cut,y=price)) + geom_boxplot()
+```
+
+
+```{r}
+ggplot(diamonds, aes(x=carat,y=price)) + geom_point() + geom_smooth() 
+```
+
+```{r}
+ggplot(diamonds, aes(x=carat,y=price,col=color)) + geom_point() + coord_trans(x = 'log10', y='log10')
+ggplot(diamonds, aes(x=carat,y=price,col=depth)) + geom_point() + coord_trans(x = 'log10', y='log10')
+```
+
+```{r}
+# Create one scatterplot for each unique color
+length(unique(diamonds$color)) # 7 scatterplots
+ggplot(diamonds,aes(carat,price)) + geom_point() + facet_wrap(~color,ncol=4)
+```
+```{r}
+# Create one scatterplot for each unique color, similar to above
+length(unique(diamonds$color)) # 7 scatterplots
+ggplot(diamonds,aes(carat,price)) + geom_point() + facet_grid(~color)
+```
+
+```{r}
+# Histogram of depth
+ggplot(diamonds,aes(depth)) + geom_histogram(binwidth = .5) + xlim(50,75)
+```
+
+```{r}
+# Create one histogram for each cut rating
+ggplot(diamonds,aes(depth)) + geom_histogram() + facet_wrap(~cut)
+```
+
+```{r}
+ggplot(diamonds,aes(depth,fill=cut)) + geom_histogram(position = 'identity',color='grey',alpha=.5,binwidth = .5)
+```
+
+```{r}
+#install.packages('maps')
+#install.packages('sf')
+library(ggplot2)
+library(maps)
+library(sf)
+
+states <- map_data('state')
+head(states)
+```
+
+
+---
+title: "ggplot-inclass"
+output: html_document
+date: "2022-09-29"
+---
+
+```{r echo=FALSE}
+# Custom options for knitting
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  error = FALSE, 
+  collapse = TRUE,
+  comment = "#",
+  fig.height = 5,
+  fig.width = 5,
+  fig.align = "center",
+  cache = FALSE
+) 
+```
+
+```{r}
+library(ggplot2)
+data(diamonds)
+head(diamonds)
+```
+
+```{r}
+# create a scatterplot
+ggplot(diamonds, aes(x=carat,y=price))   + 
+                            geom_point(col='blue',alpha=.1,size=2,shape=7) + 
+                            labs(y='price in $',x='carat value')
+```
+
+
+```{r}
+#ggplot(diamonds,aes(y=price)) + geom_boxplot()
+ggplot(diamonds,aes(x=cut,y=price)) + geom_boxplot()
+```
+
+
+```{r}
+ggplot(diamonds, aes(x=carat,y=price)) + geom_point() + geom_smooth() 
+```
+
+```{r}
+ggplot(diamonds, aes(x=carat,y=price,col=color)) + geom_point() + coord_trans(x = 'log10', y='log10')
+ggplot(diamonds, aes(x=carat,y=price,col=depth)) + geom_point() + coord_trans(x = 'log10', y='log10')
+```
+
+```{r}
+# Create one scatterplot for each unique color
+length(unique(diamonds$color)) # 7 scatterplots
+ggplot(diamonds,aes(carat,price)) + geom_point() + facet_wrap(~color,ncol=4)
+```
+```{r}
+# Create one scatterplot for each unique color, similar to above
+length(unique(diamonds$color)) # 7 scatterplots
+ggplot(diamonds,aes(carat,price)) + geom_point() + facet_grid(~color)
+```
+
+```{r}
+# Histogram of depth
+ggplot(diamonds,aes(depth)) + geom_histogram(binwidth = .5) + xlim(50,75)
+```
+
+```{r}
+# Create one histogram for each cut rating
+ggplot(diamonds,aes(depth)) + geom_histogram() + facet_wrap(~cut)
+```
+
+```{r}
+ggplot(diamonds,aes(depth,fill=cut)) + geom_histogram(position = 'identity',color='grey',alpha=.5,binwidth = .5)
+```
+
+```{r}
+#install.packages('maps')
+#install.packages('sf')
+library(ggplot2)
+library(maps)
+library(sf)
+
+states <- map_data('state')
+head(states)
+```
+
+```{r}
+# Map of U.S. states using ggplot2
+ggplot() + geom_polygon(data=states, fill='lightblue', color='black', aes(x=long, y=lat,group=group))
+```
+
+```{r}
+# Map of U.S. states using ggplot2
+ggplot() + geom_polygon(data=states, fill='lightblue', color='black', aes(x=long, y=lat,group=group)) + coord_sf(crs = st_crs(4326)) # projection
+```
+
+
+```{r}
+# Map of U.S. states using ggplot2
+ggplot() + geom_polygon(data=states, fill=states$group, color='black', aes(x=long, y=lat,group=group)) + coord_sf(crs = st_crs(4326)) # projection
+```
+
+```{r}
+# Map of U.S. states using ggplot2
+ggplot() + geom_polygon(data=states, color='black', aes(x=long, y=lat,group=group,fill=group)) + coord_sf(crs = st_crs(4326)) # projection
+```
+```{r}
+# Map of U.S. states using ggplot2
+ggplot() + geom_polygon(data=states, color='black', aes(x=long, y=lat,group=group,fill=region)) + coord_sf(crs = st_crs(4326)) + # projection st_crs()
+  theme(legend.position =  'none')
+```
+```{r}
+# install.packages('mapview')
+library(mapview)
+library(sf)
+
+df_states <- st_read('/Users/bilene/Downloads/us-states/us-states.shp')
+mapview(df_states, zcol='population', col.regions = blues9)
+```
+
