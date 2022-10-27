@@ -1,0 +1,34 @@
+---
+title: "cluster"
+output: html_document
+date: "2022-10-27"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+df <- read.csv('https://raw.githubusercontent.com/ernbilen/Data180-1_Fall22/main/data/Cluster_Ex.csv')
+```
+
+```{r}
+library(tidyverse)
+df %>% summary()
+```
+```{r}
+#ggplot(df,aes(x=X1)) + geom_histogram() # sample size probably not enough for a histogram
+plot(df$X1,df$X2) # base r
+#ggplot(df, aes(x=X1,y=X2)) + geom_point() # ggplot
+```
+
+```{r}
+dist_mat <- dist(df[,2:3],method = 'euclidean')
+plot(hclust(dist_mat), label=df$X, col='black')
+```
+```{r}
+#cutree(hclust(dist_mat), k=3)
+df$group <- cutree(hclust(dist_mat), k=3) # base r
+#df <- df %>% mutate(group = cutree(hclust(dist_mat),k=3))
+```
+
