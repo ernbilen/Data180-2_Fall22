@@ -119,7 +119,7 @@ In your dendrograms:
 
 Bonus: (not required) generate the same dendrogram using the `ggdendro` package.
 
-```{r, eval=F}
+```{r}
 
 
 ```
