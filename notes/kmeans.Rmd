@@ -1,0 +1,114 @@
+---
+title: "kmeans"
+output: html_document
+date: "2022-11-01"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+df <- read.csv('https://raw.githubusercontent.com/ernbilen/Data180-1_Fall22/main/data/Cluster_Ex.csv')
+df
+```
+
+
+```{r}
+plot(df$X1,df$X2,pch=16)
+```
+
+```{r}
+# k means:
+kmeansout <- kmeans(df[,2:3],centers=3)
+# create a new col with cluster assignments:
+df$assignment <- kmeansout$cluster
+# plot a scatterplot
+plot(df$X1,df$X2,col=df$assignment,pch=16)
+```
+
+```{r}
+# k=3
+kmeansout1 <- kmeans(df[,2:3],centers=3)
+kmeansout50 <- kmeans(df[,2:3],centers=3,nstart = 50)
+df$assignment1 <- kmeansout1$cluster
+df$assignment50 <- kmeansout50$cluster
+# plot a scatterplot
+plot(df$X1,df$X2,col=df$assignment1,pch=16)
+plot(df$X1,df$X2,col=df$assignment50,pch=16)
+kmeansout50$tot.withinss
+```
+
+```{r}
+#k=2
+kmeansout_k2 <- kmeans(df[,2:3],centers=2,nstart = 50)
+df$assignment_k2 <- kmeansout_k2$cluster
+# plot a scatterplot
+plot(df$X1,df$X2,col=df$assignment_k2,pch=16)
+kmeansout_k2$tot.withinss
+```
+
+```{r}
+# k=4
+kmeansout_k4 <- kmeans(df[,2:3],centers=4,nstart = 50)
+df$assignment_k4 <- kmeansout_k4$cluster
+# plot a scatterplot
+plot(df$X1,df$X2,col=df$assignment_k4,pch=16)
+kmeansout_k4$tot.withinss
+```
+```{r}
+# k=5
+kmeansout_k5 <- kmeans(df[,2:3],centers=5,nstart = 50)
+df$assignment_k5 <- kmeansout_k5$cluster
+# plot a scatterplot
+plot(df$X1,df$X2,col=df$assignment_k5,pch=16)
+kmeansout_k5$tot.withinss
+```
+
+
+
+```{r}
+# k=36
+kmeansout_kmax <- kmeans(df[,2:3],centers=nrow(df)-1,nstart = 50)
+df$assignment_kmax <- kmeansout_kmax$cluster
+# plot a scatterplot
+plot(df$X1,df$X2,col=df$assignment_kmax,pch=16)
+kmeansout_kmax$tot.withinss
+```
+
+
+```{r}
+# compare wgss between a 'bad' and a 'good' output
+kmeansout1$tot.withinss
+kmeansout50$tot.withinss
+```
+
+
+```{r}
+plot(df$X1,df$X2,col=df$assignment50,pch=16)
+points(kmeansout50$centers[,1],kmeansout50$centers[,2],pch=10,col='blue')
+```
+```{r}
+kmeansout50_4 <- kmeans(df[,2:3],centers=3,nstart = 50)
+df$assignment50_4 <- kmeansout50_4$cluster
+plot(df$X1,df$X2,col=df$assignment50_4,pch=16)
+points(kmeansout50_4$centers[,1],kmeansout50_4$centers[,2],pch=10,col='blue')
+```
+
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
