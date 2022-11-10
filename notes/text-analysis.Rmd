@@ -1,0 +1,46 @@
+---
+title: "text-analysis"
+output: html_document
+date: "2022-11-10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#install.packages('tm')
+library('tm') # tm stands for text mining
+```
+
+```{r}
+charVector <- scan('https://raw.githubusercontent.com/ernbilen/Data180-1_Fall22/main/data/speech.txt',sep='\n', character(0))
+
+posWords <- scan('https://raw.githubusercontent.com/ernbilen/Data180-1_Fall22/main/data/positive-words.txt',sep='\n', character(0))
+
+negWords <- scan('https://raw.githubusercontent.com/ernbilen/Data180-1_Fall22/main/data/negative-words.txt',sep='\n', character(0))
+```
+
+
+```{r}
+head(posWords,15)
+```
+
+```{r}
+head(negWords,15)
+```
+
+
+```{r}
+wordVector <- VectorSource(charVector)
+wordCorpus <- Corpus(wordVector)
+```
+
+```{r}
+wordCorpus <- tm_map(wordCorpus, content_transformer(tolower))
+```
+
+
+
+
+
