@@ -1,0 +1,76 @@
+Data 180 **Study guide for Exam 2:**
+This list is created to help you study for exam 2. 
+*Disclaimer:* The topics listed here may not be fully comprehensive. You should refer to
+the notes posted on GitHub, as they form the main source material.
+
+Topic 4: dplyr
+Make sure to review the dplyr homework and understand the operations in it well.
+Be able to use the
+Four main functions of dplyr (select, filter, mutate, arrange) to manipulate and access data.
+Pipe operator with dplyr functions.
+Ifelse function in creating a categorical variable from numerical.
+Groupby and summarize to return aggregate summaries of data.
+
+Topic 5: unsupervised learning: hierarchical clustering
+What is unsupervised learning? Compare with supervised learning.
+Identify if a data science task requires unsupervised or supervised learning.
+Define what a distance is. Calculate distance between two objects using Euclidean,
+Manhattan, and Minkowski distance.
+What is a data matrix? What is a distance matrix? Identify the dimensions of a given
+data matrix and distance matrix given a dataset.
+Find distance between two groups of objects using nearest neighbor, furthest neighbor,
+and average neighbor distance.
+What is hierarchical clustering? Why is it called "bottom up"?
+What is a dendrogram?
+Find a partition set necessary to create a dendrogram given data and/or distance matrix.
+Create (by hand) a dendrogram given data and/or distance matrix using partitions.
+Create (by R, using hclust) a dendrogram given data and/or distance matrix using partition set.
+Show visually how to identify clusters on a dendrogram. (e.g., horizontally cutting the dendrogram)
+Visually compare if a clustering solution from a dendrogram matches well with a scatterplot of the raw data.
+Create a scatterplot of raw data with separate colors or symbols showing cluster belonging for each observation.
+
+Topic 6: unsupervised learning: k-means
+What is a centroid? Find the centroid of a group of objects by hand.
+What is k-means clustering? Why is it called "k-means"?
+Describe briefly how the algorithm works step by step, including its stochastic (random) nature.
+Explain what WGSS is. How does the k-means algorithm use WGSS to find a clustering solution? (No need for by-hand calculations)
+What is an elbow plot? How and why is it used? Write code to create an elbow plot in R.
+Explain what BGSS is. (No need for by-hand calculations)
+What is the CH index? Find CH index given WGSS, BGSS, and a data matrix.
+Describe why using WGSS alone in choosing k could be problematic. Explain how BGSS and the CH Index can help with these issues.
+
+Topic 7: unsupervised learning part 2: similarity measures
+What is a similarity measure? How is it different (or similar) to a distance measure.
+Why is similarity more useful in certain datasets compared to dissimilarity (distance)? Are all kinds of data suitable to use distance measures?
+Find by hand the similarity between two objects given binary, categorical (with more than 2 possible categories), and numerical characteristics using matching coefficient.
+Why for certain data 0-0 matches can't imply similarity between objects? Given an example of data in a given dataset in which a 0-0 match contains no useful information for determining similarity.
+What is Jaccard's coefficient? Why was it proposed? Find by hand the similarity between two objects given binary, categorical (with more than 2 possible categories), and numerical characteristics using Jaccard's coefficient.
+What is the Generalized Similarity Measure (aka the Gower's measure)? Why and how is it used?
+Find by hand the similarity between two objects using Gower's measure where certain 0-0 matches (which you as the data scientist must determine) don't contain useful information.
+Use daisy function in R to create a dissimilarity matrix.
+Know how to convert a dissimilarity observation (or a dissimilarity matrix) into a similarity observation (or a similarity matrix).
+
+Topic 8: text analysis
+No need to code anything in R for this chapter on the exam. Make sure to focus on the intuition and interpretation of results.
+What is text? Can all symbols be counted as "text"?
+What are different text analysis approaches? Explain how dictionary based content analysis, unsupervised learning, supervised learning, and natural language processing could be done using text data. Give an example for each.
+What is a term document matrix (tdm)? (Aka document term matrix) What is its structure in terms of rows and columns?
+Find (by hand) the term document matrix given a paragraph containing sentences.
+Why "cleaning" text data before creating the tdm is necessary?
+What are some of the "cleaning" done on text data? (e.g., think of removing punctuation, converting all characters to lowercase, stemming, etc.)
+What is zipf's law? Interpret a zipf plot generated from text data.
+Interpret a barplot showing the most frequent words in text data.
+Interpret a barplot showing the frequency of occurrences of words in text data.
+Interpret a wordcloud.
+Explain the steps for how to identify "positive" (or negative) words that occur in a given text data.
+How would you determine if a given text is more "positive" v more "negative"?
+What is part of speech tagging? Why is it used? How could it help dictionary analysis of text?
+What is topic modeling? Is it considered dictionary analysis, supervised learning, unsupervised learning, or natural language processing?
+What is latent drichlet allocation? How does it compare to k-means? What do parameters alpha and beta show in a drichlet distribution? (Keep in mind alpha is called gamma in R output.)
+For given k (number of topics), interpret a barplot showing words with highest estimated beta.
+How would you find "titles" for topics, given the words with highest beta in each topic.
+For given k (number of topics), interpret a barplot showing texts with highest estimated gamma.
+What do you expect a word that has a very high beta on a topic to show?
+What do you expect a text that has a very high gamma on a topic to show?
+
+
