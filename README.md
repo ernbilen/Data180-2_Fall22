@@ -55,4 +55,4 @@ Homework           |   40   |    40.0%   |
 * [LaTeX Cheat Sheet](http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf) and [an excellent tutorial](https://www.youtube.com/watch?v=NXW4cbHBthY) by Dave Richeson
 * [QuantEcon](https://quantecon.org)
 * [Live question link](https://itempool.com/ernbilen/live)
-* [Eval link](dickinson.campuslabs.com/courseeval)
+* [Eval link](https://dickinson.campuslabs.com/courseeval)
