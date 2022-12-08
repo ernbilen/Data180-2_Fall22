@@ -1,0 +1,197 @@
+---
+title: "Take-home Final Exam"
+subtitle: "Data 180, Professor Bilen"
+author: 
+  name: "Your Name"
+  email: "XXXX@dickinson.edu"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+output: 
+  html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+**Instructions** Due date is December 14, 5pm. You are allowed to use any of your notes, textbook, or resources from the internet, but you are strictly prohibited to communicate with any other person (including me!) while you complete your final exam. Make sure to interpret your results clearly when indicated. Your score will be 80% based on the accuracy of your code, and 20% interpretation. Good luck! (Note: you are allowed to reach out to me for any clarification questions.)
+
+
+```{r echo=FALSE}
+# Load tidyverse
+library(tidyverse)
+
+# Custom options for knitting, you can keep this as it is.
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  error = FALSE, 
+  fig.align = "center",
+  fig.width = 4,
+  fig.height = 4,
+  cache = FALSE
+) 
+
+# turn off scientific notation
+options(scipen=5)
+```
+
+Chess is a two-player sequential game where each player gets a set of 16 chess pieces: King (1), Queen (1), Knights (2), Bishops (2), Rooks (2), and Pawns (8). One player takes the White pieces and the other player takes the Black pieces. Player with the White pieces moves first. The goal of the game is to capture the enemy King by a “checkmate”. During the game, players must do their best to play the “correct” moves that would help them achieve this goal.
+
+The data set `chess.csv` is available on Github course page. This file contains data on 328 chess games played at professional tournaments between 2018-2019. 
+
+```
+Game_id:    A unique identifier for each game.
+Ply:        Move number.
+Side:       Player’s side (White or Black).
+Move:       Move played (algebraic notation).
+CPLoss:     Centipawn loss resulting from a move.
+Mistake:	=1 if 120≤ CPLoss <300
+Blunder:	=1 if CPLoss ≥300
+Castle:     =1 if the move played was a "castling" move (short or long).
+LongCastle: =1 if the move played was a "long castling" move.
+NotCastled: =1 if the player did not castle in the game.
+White:	    Name of the player with the White pieces.
+Black:	    Name of the player with the Black pieces.
+WhiteElo:	Elo rating of the player with the White pieces.
+BlackElo:	Elo rating of the player with the Black pieces.
+Result:	    Result of the game: {0: Black won, 1/2: Draw, 1: White won}
+Event:	    Name of the tournament.
+Blitz:	    =1 if the time control used in the tournament was "Blitz", i.e., 5 mins + 2s increments for each player in a game;  otherwise classical time controls (>100 mins each side)  
+Site:		Location of the tournament.
+Date:		Date of the tournament.
+Round:	    The round the game took place in the tournament.
+ECO:		ECO classification of the opening played in the game.
+King:		=1 if a move played is a King move.
+Queen:	    =1 if a move played is a Queen move.
+Bishop:	    =1 if a move played is a Bishop move.
+Knight:	    =1 if a move played is a Knight move.
+Rook:		=1 if a move played is a Rook move.
+Pawn:		=1 if a move played is a Pawn move.
+```
+
+Read this table into R and create the object chess using
+
+```{r}
+chess<-read.csv("chess.csv",header=T,row.names=1) # try full path to file if you get a file missing error
+chess %>% head()
+```
+
+In a chess game, the side who plays more “accurately” throughout the game is more likely to become the winner. The variable CPLoss measures the mistakes resulting from a move, with their amounts measured in “centipawns”. (100 centipawns = 1 pawn) The measurements were done with the help of Stockfish 13. Stockfish is a modern “super-computer” chess engine that plays chess stronger than any human player who ever lived.
+
+A popular metric that describes how well a player played in a game is called the "Average Centipawn Loss" (ACPL). For a given player, it is defined as
+
+$$
+ACPL=\overline{CPL} = \frac{\sum_{i=1}^nCentipawn\,Loss_i }{n}
+$$
+
+where *n* is the number of moves played by a given player in a given game. A higher number for ACPL would mean that the player committed more mistakes, on average, in that particular game. 
+
+# Question 1
+Calculate the ACPL for each side in each game in the data. Store this information in a new column named `ACPL`.
+```{r}
+
+```
+
+# Question 2
+Do we really observe that playing less accurately leads to a higher chance to lose a game? Run a linear probability regression where your X variable is `ACPL` and Y variable is `Win`. Interpret your coefficient and explain your result in plain words. *(Hint: Make sure to consider only decisive games when evaluating the variable `Win`, i.e., think about what Win=0 implies in terms of game outcome.)*
+```{r}
+
+```
+
+# Question 3
+Plot a histogram for `ACPL`. Is it skewed? Why do you think the distribution appears the way it does?
+```{r}
+
+```
+
+
+
+# Question 4
+In "Blitz" chess, players get a significantly smaller amount of time to think per move. Does having less time per move lead to players making more mistakes? Test this hypothesis using a simple linear regression. Interpret your result with plain words.
+```{r}
+
+```
+
+
+Elo rating is the official ranking system used by the International Chess Federation (FIDE). This system was developed by the Hungarian physicist Arpad Elo (Elo, 1978). It is an approximation for a chess player’s strength before a game takes place.
+
+# Question 5
+Do stronger players play more accurately? Test this hypothesis using a simple linear regression separately for "classical" and "blitz" time-variants. Plot a scatterplot (one for each time-variant) of `ACPL` on the y-axis and Elo rating on the x-axis for all players in the sample. Explain your results in plain words. What do your findings imply? *(Hint: This task requires some data-wrangling. Notice there is no single "Elo" variable at the current state of the data. You need to create a single Elo rating column, which means you need to create a "longer" version of the data. `rbind()` is a function that can come in handy, which is used to append two dataframes together.)*
+```{r}
+
+```
+
+
+# Question 6
+Predict the expected `ACPL` of a player with Elo rating of 2700 using a linear regression. Restrict your sample to classical games only. Interpret your results. *(Hint: You should use your dataframe from Question 5, where there is only one Elo rating column, and you have a "longer" version of the data at hand.)*
+```{r}
+
+```
+
+
+# Question 7
+Predict the expected `ACPL` of a player with Elo rating of 2700 using a decision tree. Restrict your sample to classical games only. Are your results different than in Question 6? Explain.
+
+```{r}
+
+```
+
+# Question 8
+Split your sample to training and test samples. Keep 80% of your data in the training sample, the remaining in the test sample. Make sure to keep only classical games. Train a linear regression model, and a decision tree using your training sample. Then test your model by making predictions of `ACPL` using Elo ratings on the test sample. What is the Mean Squared Error (MSE) of the linear model? What is the MSE of the decision tree? Which model do you prefer. Why? 
+```{r}
+
+```
+
+
+
+# Question 9
+Each chess opening gets an ECO classification. (ECO stands for "Encyclopedia of Chess Openings", which is a classification system used in chess that categorizes chess openings) What are the names of the three most popular chess openings played in the sample?
+*Hint: You can go to (https://www.chessgames.com/chessecohelp.html)[https://www.chessgames.com/chessecohelp.html] for a list of ECO codes and their corresponding opening names.*
+```{r}
+
+```
+
+
+# Question 10
+"Sicilian" opening is a popular opening choice (not the only one) for players who want to have a "sharper" game. That is, we can expect more "ups and downs" in computer evaluation (CPLoss) in games with the Sicilian opening. Test if this hypothesis is true using a simple linear regression.
+
+*Hint1: Go to (https://www.chessgames.com/chessecohelp.html)[https://www.chessgames.com/chessecohelp.html] and identify the opening ECO codes for the Sicilian opening. Get all the variations of the Sicilian opening that starts with the letter code "B".*
+
+*Hint2: Here is R code that will come in handy in this problem:*
+```{r}
+chess <- chess %>% mutate(ECOletter = str_sub(ECO,0,1), ECOdigit = str_sub(ECO,-2))
+chess <- chess %>% group_by(Game_id,Side) %>% mutate(CPLsd = sd(CPLoss)) # gets "ups and downs" as the standard deviation of CP Loss and stores as a column named `CPLsd`.
+``` 
+
+```{r}
+
+```
+
+
+# Question 11
+Let’s do some basic move-level analysis. Can you identify around what move # the mistakes happen the most? Consider only the first 80 moves.
+*(Hint: You should compute the average `CPLoss` for each `Ply`.)*
+
+```{r}
+
+```
+
+
+"Castling" is a move where a player puts their King in a safe position, thus can start building an attack without worrying for their King’s safety. (at least in the short run) However, some players may consider delaying castling (or not castle altogether) in order to achieve a quick "surprise" attack. 
+
+# Question 12
+Considering all of this, should you castle? Compare the means of win rate between players who did and who did not castle during a game.
+```{r}
+
+```
+
+
+# Question 13
+If your answer to the previous is yes, *when* should you castle? *(Hint: In other words, what move # for castling over all castling moves played gives the highest win rate?)*
+```{r}
+
+```
+
+
+
+Congratulations! You are done! 🏁 Don't forget to commit and push your .Rmd file to your Github repository before the due date. It has been a pleasure teaching you data science this semester! Follow me on Github, and keep in touch!
+
+
